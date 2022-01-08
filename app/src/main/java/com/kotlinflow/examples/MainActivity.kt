@@ -14,7 +14,8 @@ class MainActivity : AppCompatActivity() {
 //        Example2.startExample()
 //        Example3.startExample()
 //        Example4.startExample(lifecycleScope)
-        Example5.startExample(lifecycleScope)
+//        Example5.startExample(lifecycleScope)
+        Example6.startExample(lifecycleScope)
 
 
     }
