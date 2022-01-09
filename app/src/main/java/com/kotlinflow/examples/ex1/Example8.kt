@@ -2,28 +2,26 @@ package com.kotlinflow.examples.ex1
 
 import androidx.lifecycle.LifecycleCoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.launch
 
-object Example7 {
+object Example8 {
 
     val userIds = listOf(10,20,30,40,50,60,70,80,90)
 
     fun startExample(lifecycleScope: LifecycleCoroutineScope) {
 
         lifecycleScope.launch(Dispatchers.IO) {
-             userIds.asFlow()
-                .transform {
-                    emit("transform Age1 : $it")
-                    emit("transform Age2 : $it")
-                }
+            userIds.asFlow()
+                .take(3)
                 .collect {
-                    println("User List : $it")
+                    println("User Id : $it")
                 }
         }
 
     }
-
 
 
 
